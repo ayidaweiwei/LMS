@@ -1,5 +1,6 @@
 # LMS
 Library Management System
+<<<<<<< HEAD
 
 
 
@@ -82,3 +83,5 @@ java -cp target/LMS-1.0.jar com.weiwei.Main
    $ add "Clean Code" "Robert C. Martin" 3  
    Book "Clean Code" inventory successfully updated, new inventory: 8.  
  ```
+=======
+>>>>>>> origin/main
