@@ -125,7 +125,7 @@ public class Main {
     private static String[] getArgs(String arguments) {
         String[] borrowArgsSource = arguments.split(" \"|\" |\"");
         return Arrays.stream(borrowArgsSource)
-                .filter(arg -> arg != null && !arg.isEmpty()) // ¹ýÂËµô¿Õ×Ö·û´®
+                .filter(arg -> arg != null && !arg.isEmpty())
                 .toArray(String[]::new);
     }
 }

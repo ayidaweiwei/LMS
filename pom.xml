@@ -29,12 +29,7 @@ http://www.w3.org/2001/XMLSchema-instance ">
             <version>5.7.0</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.7.0</version>
-            <scope>compile</scope>
-        </dependency>
+
 
         <!-- 这里可以添加更多的依赖 -->
     </dependencies>

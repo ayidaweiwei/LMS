@@ -36,7 +36,7 @@ Follow these steps to set up your development environment:
 To run the Library Management System, use the following command from the root directory of the project:
 
 ```bash
-java -cp target/LMS-1.0-SNAPSHOT.jar
+java -jar target/LMS-1.0-SNAPSHOT.jar
 ```
 
 ### Business	Functions

@@ -1,5 +1,3 @@
-package com.library.management.test;
-
 /**
  * @author zhuangweiwei
  * @version 1.0
