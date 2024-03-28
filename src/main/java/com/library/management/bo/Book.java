@@ -9,6 +9,7 @@ import java.util.Objects;
 public class Book {
     private final String title;
     private final String author;
+
     private int inventory;
 
     public Book(String title, String author, int inventory) {
@@ -21,6 +22,7 @@ public class Book {
     public String getTitle() {
         return title;
     }
+
 
     public String getAuthor() {
         return author;

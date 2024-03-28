@@ -1,12 +1,9 @@
-# LMS
-Library Management System
-<<<<<<< HEAD
-
-
+> > # LMS - Library Management System
 
 ### Setup
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+These instructions will get you a copy of the project up and running on your local machine for development and testing
+purposes.
 
 ### Prerequisites
 
@@ -39,19 +36,19 @@ Follow these steps to set up your development environment:
 To run the Library Management System, use the following command from the root directory of the project:
 
 ```bash
-java -cp target/LMS-1.0.jar com.weiwei.Main
+java -cp target/LMS-1.0-SNAPSHOT.jar
 ```
 
 ### Business	Functions
-1. Users	(User)	and	Administrators	(Admin)	can	register	and	log	in	to	the	system.
-2. Users	can	view	the	list	of	books,	borrow	multiple	books,	and	return	these	books.
-3. Administrators	have	the	authority	to	view	the	list	of	books,	add	books,	delete
-   books.	If	a	book	is	already	in	the	system	and	the	administrator	tries	to	add	it
-   again,	the	system	should	merge	the	inventory	rather	than	create	a	new	one.	Also,
-   administrators	cannot	delete	books	that	are	currently	being	borrowed	by	users.
 
+1. Users    (User)    and Administrators    (Admin)    can register and log in to the system.
+2. Users can view the list of books, borrow multiple books, and return these books.
+3. Administrators have the authority to view the list of books, add books, delete books. If a book is already in the
+   system and the administrator tries to add it again, the system should merge the inventory rather than create a new
+   one. Also, administrators cannot delete books that are currently being borrowed by users.
 
-###Command-line	Input/Output	Examples
+### Command-line	Input/Output	Examples
+
 ```
    $ register admin Alice password1  
    Admin Alice successfully registered.  
@@ -66,7 +63,7 @@ java -cp target/LMS-1.0.jar com.weiwei.Main
    Clean Code - Robert C. Martin - Inventory: 5  
    $ login Bob password2  
    User Bob successfully logged in.  
-   $ search "Clean Code" " Robert C. Martin"  
+   $ search "Clean Code" "Robert C. Martin"  
    Clean Code - Robert C. Martin - Inventory: 5  
    $ borrow "Clean Code" " Robert C. Martin"  
    Book "Clean Code" successfully borrowed.  
@@ -83,5 +80,3 @@ java -cp target/LMS-1.0.jar com.weiwei.Main
    $ add "Clean Code" "Robert C. Martin" 3  
    Book "Clean Code" inventory successfully updated, new inventory: 8.  
  ```
-=======
->>>>>>> origin/main

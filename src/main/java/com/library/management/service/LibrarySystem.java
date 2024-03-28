@@ -6,7 +6,9 @@ import com.library.management.bo.Book;
 import com.library.management.bo.User;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author zhuangweiwei
@@ -87,21 +89,54 @@ public class LibrarySystem {
         return "Returning failed. Book not borrowed by user.";
     }
 
-    public String deleteBook(String title, String author) {
-        if (currentUser instanceof Admin) {
-            for (Book book : books.keySet()) {
-                if (book.getTitle().equals(title) && book.getAuthor().equals(author)) {
-                    if (books.get(book) > 0) {
-                        books.remove(book);
-                        return "Book \"" + title + "\" successfully deleted.";
-                    } else {
-                        return "Cannot delete book \"" + title + "\" because it is currently borrowed.";
-                    }
-                }
+    public String search(String title, String author) {
+        List<Book> foundBooks = books.entrySet().stream()
+                .filter(entry -> entry.getKey().getTitle().equalsIgnoreCase(title) && entry.getKey().getAuthor().equalsIgnoreCase(author))
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+
+        if (foundBooks.isEmpty()) {
+            return "No books found matching the criteria.";
+        } else {
+            StringBuilder sb = new StringBuilder();
+            for (Book book : foundBooks) {
+                int inventory = books.get(book);
+                sb.append(book.getTitle()).append(" - ").append(book.getAuthor()).append(" - Inventory: ").append(inventory).append("\n");
             }
+            return sb.toString();
+        }
+    }
+
+    public String deleteBook(String title, String author) {
+        if (!(currentUser instanceof Admin)) {
+            return "Failed to delete book. Only admins are allowed to delete books.";
+        }
+
+        Book bookToDelete = null;
+        // Find the book to delete based on title and author
+        for (Book book : books.keySet()) {
+            if (book.getTitle().equalsIgnoreCase(title) && book.getAuthor().equalsIgnoreCase(author)) {
+                bookToDelete = book;
+                break;
+            }
+        }
+
+        if (bookToDelete == null) {
             return "Book not found.";
         }
-        return "Failed to delete book. Only admins are allowed to delete books.";
+
+        // Check if the book is currently borrowed
+        if (books.get(bookToDelete) < bookToDelete.getInventory()) {
+            return "Cannot delete book \"" + title + "\" because it is currently borrowed.";
+        }
+
+        // If not borrowed, proceed to delete
+        books.remove(bookToDelete);
+        return "Book \"" + title + "\" successfully deleted.";
+    }
+
+    public void logout() {
+        this.currentUser = null;
     }
 }
 
